@@ -21,6 +21,6 @@ mod 'puppetlabs/inifile'
 
 # Here's the module that we'll integrate into our CD4PE environment
 mod 'cd4pe/mymodule',
-  :git            =>  'git@gitlab.classroom.puppet.com:cd4pe/puppet-mymodule-' + `hostname`.match('\d+').to_s,
+  :git            =>  'git@gitlab.classroom.puppet.com:puppet/puppet-mymodule-' + `hostname`.match('\d+').to_s,
   :branch         => :control_branch,
-  :default_branch => 'master'
+  :default_branch => 'production'
