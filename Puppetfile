@@ -1,6 +1,15 @@
-# Here are the modules that we need, in order to configure the workshop
-# environment.
+# This function enables CD4PE to do Impact Analysis on custom modules
 
+def default_branch(default)
+  begin
+    match = /(.+)_(cdpe|cdpe_ia)_\d+$/.match(@librarian.environment.name)
+    match ? match[1]:default
+  rescue
+    default
+  end
+end
+
+# Here are the modules that we need, in order to configure the workshop environment.
 
 # CD4PE and dependencies
 mod 'puppetlabs-cd4pe', :latest
@@ -20,7 +29,7 @@ mod 'whatsaranjit/node_manager'
 mod 'puppetlabs/inifile'
 
 # Here's the module that we'll integrate into our CD4PE environment
-mod 'cd4pe/mymodule',
-  :git            =>  'git@gitlab.classroom.puppet.com:puppet/puppet-mymodule-' + `hostname`.match('\d+').to_s,
-  :branch         => :control_branch,
-  :default_branch => 'production'
+#mod 'mymodule',
+#  :git            =>  'git@<workshopID>-gitlab.classroom.puppet.com:puppet/puppet-mymodule-' + `hostname`.match('\d+').to_s + '.git',
+#  :branch         => :control_branch,
+#  :default_branch => 'production'
