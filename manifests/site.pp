@@ -6,3 +6,7 @@ node default {
 node /^master/, /^puppet/ {
   include profile::master
 }
+
+node /cd4pe\d+.classroom.puppet.com/ {
+  include profile::cd4pe
+}
