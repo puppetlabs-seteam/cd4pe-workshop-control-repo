@@ -79,18 +79,27 @@ class profile::master {
 
   # Manage the "PE Master" group so that we can aim R10K at the correct
   # participant's control repository, from the profile::human_number function
-  node_group { 'PE Master':
-    ensure               => present,
-    classes              => {
-    'pe_repo::platform::el_7_x86_64'     => {},
-    'pe_repo::platform::windows_x86_64'  => {},
+  
+  # Get all current classes first
+  $pe_master_classes = node_groups('PE Master')['PE Master']['classes']
+  
+  # Define updated puppet_enterprise::profile::master class
+  $code_manager_hash = {
     'puppet_enterprise::profile::master' => {
       'code_manager_auto_configure' => true,
       'r10k_private_key'            => '/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa',
       'r10k_remote'                 => "https://student0:puppetlabs@gitlab.classroom.puppet.com/puppet/control-repo-${profile::human_number()}.git",
       'replication_mode'            => 'none'
     }
-  },
+  }
+  
+  # Merge hashes to override puppet_enterprise::profile::master class
+  $pe_master_new_classes = $pe_master_classes + $code_manager_hash
+  
+  # Apply to new config to the node group
+  node_group { 'PE Master':
+    ensure               => present,
+    classes              => $pe_master_new_classes,
     environment          => 'production',
     override_environment => 'false',
     parent               => 'PE Infrastructure',
