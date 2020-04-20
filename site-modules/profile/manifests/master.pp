@@ -87,7 +87,7 @@ class profile::master {
     'puppet_enterprise::profile::master' => {
       'code_manager_auto_configure' => true,
       'r10k_private_key'            => '/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa',
-      'r10k_remote'                 => "https://student0:puppetlabs@gitlab.classroom.puppet.com/puppet/control-repo-${profile::human_number()}.git",
+      'r10k_remote'                 => "https://student0:puppetlabs@gitlab.classroom.puppet.com/puppet/control-repo-${facts['student_id']}.git",
       'replication_mode'            => 'none'
     }
   },
