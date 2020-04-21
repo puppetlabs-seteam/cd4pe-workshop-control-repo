@@ -13,6 +13,7 @@ end
 
 # CD4PE and dependencies
 mod 'puppetlabs-cd4pe', :latest
+mod 'puppetlabs-cd4pe_jobs', :latest
 mod 'puppetlabs-concat', '4.2.1'
 mod 'puppetlabs-hocon', '1.0.1'
 mod 'puppetlabs-puppet_authorization', '0.5.0'
