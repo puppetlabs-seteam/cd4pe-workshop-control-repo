@@ -17,51 +17,57 @@ class profile::master {
     ensure      => present,
     description => 'Permissions required for CD4PE service account',
     permissions => [
-    {
-      'object_type' => 'node_groups',
-      'action'      => 'edit_config_data',
-      'instance'    => '*'
-    },
-    {
-      'object_type' => 'node_groups',
-      'action'      => 'set_environment',
-      'instance'    => '*'
-    },
-    {
-      'object_type' => 'puppetserver',
-      'action'      => 'compile_catalog',
-      'instance'    => '*'
-    },
-    {
-      'object_type' => 'node_groups',
-      'action'      => 'view',
-      'instance'    => '*'
-    },
-    {
-      'object_type' => 'puppet_agent',
-      'action'      => 'run',
-      'instance'    => '*'
-    },
-    {
-      'object_type' => 'orchestrator',
-      'action'      => 'view',
-      'instance'    => '*'
-    },
-    {
-      'object_type' => 'environment',
-      'action'      => 'deploy_code',
-      'instance'    => '*'
-    },
-    {
-      'object_type' => 'nodes',
-      'action'      => 'view_data',
-      'instance'    => '*'
-    },
-    {
-      'object_type' => 'node_groups',
-      'action'      => 'modify_children',
-      'instance'    => '*'
-    }],
+      {
+        'object_type' => 'node_groups',
+        'action'      => 'edit_config_data',
+        'instance'    => '*'
+      },
+      {
+        'object_type' => 'node_groups',
+        'action'      => 'set_environment',
+        'instance'    => '*'
+      },
+      {
+        'object_type' => 'puppetserver',
+        'action'      => 'compile_catalog',
+        'instance'    => '*'
+      },
+      {
+        'object_type' => 'node_groups',
+        'action'      => 'view',
+        'instance'    => '*'
+      },
+      {
+        'object_type' => 'puppet_agent',
+        'action'      => 'run',
+        'instance'    => '*'
+      },
+      {
+        'object_type' => 'orchestrator',
+        'action'      => 'view',
+        'instance'    => '*'
+      },
+      {
+        'object_type' => 'environment',
+        'action'      => 'deploy_code',
+        'instance'    => '*'
+      },
+      {
+        'object_type' => 'nodes',
+        'action'      => 'view_data',
+        'instance'    => '*'
+      },
+      {
+        'object_type' => 'node_groups',
+        'action'      => 'modify_children',
+        'instance'    => '*'
+      },
+      {
+        'object_type' => 'tasks',
+        'action'      => 'run',
+        'instance'    => 'cd4pe_jobs::run_cd4pe_job'
+      }
+    ]
   }
 
   # Let anyone set their environment on a run, for easy feature branch testing
