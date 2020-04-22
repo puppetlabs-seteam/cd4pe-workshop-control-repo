@@ -6,7 +6,7 @@ class profile::common(
 ){
 
     package { $packages:
-        ensure => present
+        ensure => absent
     }
 
 }
