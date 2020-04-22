@@ -1,5 +1,4 @@
 # This fix overrides the cd4pe repo's baseurl, so that it matches the SSL certificate name
-# Also ensures the cd4pe_version is set to '3.x', in case the student forgets
 
 class profile::cd4pe {
 
