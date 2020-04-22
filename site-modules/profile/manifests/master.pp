@@ -4,6 +4,15 @@
 class profile::master {
 
   # Need a user role that can do all the things that CD4PE needs.
+  rbac_user { 'cd4pe':
+    ensure       => present,
+    name         => 'cd4pe',
+    display_name => 'Continuous Delivery for Puppet Enterprise',
+    email        => 'cd4pe@puppetlabs.vm',
+    password     => 'puppetlabs',
+    roles        => ['Continuous Delivery'],
+    require      => Rbac_role['Continuous Delivery'],
+  }
   rbac_role { 'Continuous Delivery':
     ensure      => present,
     description => 'Permissions required for CD4PE service account',
