@@ -10,8 +10,4 @@ class profile::cd4pe {
   Yumrepo <| title == 'cd4pe' |> {
     baseurl => $source,
   }
-
-  Class <| title == 'cd4pe' |> {
-    cd4pe_version => '3.x'
-  }
 }
