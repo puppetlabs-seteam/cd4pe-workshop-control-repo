@@ -1,4 +1,5 @@
 # This fix overrides the cd4pe repo's baseurl, so that it matches the SSL certificate name
+# Also ensures the cd4pe_version is set to '3.x', in case the student forgets
 
 class profile::cd4pe {
 
@@ -8,5 +9,9 @@ class profile::cd4pe {
 
   Yumrepo <| title == 'cd4pe' |> {
     baseurl => $source,
+  }
+
+  Class <| title == 'cd4pe' |> {
+    cd4pe_version => '3.x'
   }
 }
