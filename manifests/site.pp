@@ -1,5 +1,6 @@
 # Default node resources
 node default {
+  include profile::common
 }
 
 # Any node that starts with 'master' is a primary master for a participant
