@@ -1,4 +1,3 @@
----
 profile::common::packages:
   nano:
     ensure: absent
