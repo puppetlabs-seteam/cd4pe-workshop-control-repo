@@ -3,7 +3,7 @@
 class profile::cd4pe {
 
   $pe_ver  = pe_build_version()
-  $base_source = "https://puppet.classroom.puppet.com:8140/packages"
+  $base_source = 'https://puppet.classroom.puppet.com:8140/packages'
   $source = "${base_source}/${pe_ver}/puppet_enterprise"
 
   Yumrepo <| title == 'cd4pe' |> {
