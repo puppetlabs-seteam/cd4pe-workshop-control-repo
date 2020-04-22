@@ -2,11 +2,13 @@
 # Use this class for testing changes
 
 class profile::common(
-    Array[String] $packages = [ 'nano', 'vim-enhanced' ]
+    Hash $packages = {}
 ){
 
-    package { $packages:
-        ensure => absent
+    $packages.each |$package,$attribs| {
+        package { $package:
+            * => $attribs
+        }
     }
 
 }
