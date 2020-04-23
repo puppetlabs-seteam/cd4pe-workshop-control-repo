@@ -2,4 +2,4 @@ profile::common::packages:
   nano:
     ensure: absent
   vim-enhanced:
-    ensure: present
+    ensure: absent
