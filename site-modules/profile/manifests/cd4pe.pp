@@ -26,4 +26,7 @@ class profile::cd4pe {
     value             => 86400,
   }
 
+  service { 'puppet':
+    ensure => running
+  }
 }
