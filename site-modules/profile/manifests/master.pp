@@ -104,4 +104,14 @@ class profile::master {
     ['=', 'name', 'puppet.classroom.puppet.com']],
   }
 
+  ini_setting { 'puppet[main:runinterval]':
+    ensure            => present,
+    section           => 'main',
+    key_val_separator => '=',
+    path              => '/etc/puppetlabs/puppet/puppet.conf',
+    notify            => Service['puppet'],
+    setting           => 'runinterval',
+    value             => 86400,
+  }
+
 }
