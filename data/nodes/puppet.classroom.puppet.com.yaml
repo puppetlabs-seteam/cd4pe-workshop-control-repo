@@ -3,3 +3,5 @@ profile::common::packages:
     ensure: absent
   vim-enhanced:
     ensure: absent
+
+puppet_enterprise::console_services::no_longer_reporting_cutoff: 86400
