@@ -114,4 +114,7 @@ class profile::master {
     value             => 86400,
   }
 
+  service { 'puppet':
+    ensure => running
+  }
 }
