@@ -33,4 +33,4 @@ mod 'puppetlabs/inifile',               :latest
 mod 'mymodule',
   :git            => 'https://student0:puppetlabs@gitlab.classroom.puppet.com/puppet/puppet-mymodule-' + `facter --external-dir /opt/puppetlabs/facter/facts.d student_id`.chomp.to_s + '.git',
   :branch         => :control_branch,
-  :default_branch => 'production'
+  :default_branch => default_branch('production')
