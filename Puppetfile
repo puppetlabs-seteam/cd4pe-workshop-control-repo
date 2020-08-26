@@ -12,7 +12,7 @@ end
 # Here are the modules that we need, in order to configure the workshop environment.
 
 # CD4PE and dependencies
-mod 'puppetlabs-cd4pe',                 :latest
+mod 'puppetlabs-cd4pe',                 '2.0.1'
 mod 'puppetlabs-cd4pe_jobs',            :latest
 mod 'puppetlabs-concat',                :latest
 mod 'puppetlabs-hocon',                 :latest
