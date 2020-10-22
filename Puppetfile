@@ -31,6 +31,6 @@ mod 'puppetlabs/inifile',               :latest
 
 # Here's the module that we'll integrate into our CD4PE environment
 mod 'mymodule',
-  :git            => 'https://student0:puppetlabs@gitlab.classroom.puppet.com/puppet/puppet-mymodule-' + `facter --external-dir /opt/puppetlabs/facter/facts.d student_id`.chomp.to_s + '.git',
+  :git            => 'git@gitlab.classroom.puppet.com:puppet/puppet-mymodule-' + `facter --external-dir /opt/puppetlabs/facter/facts.d student_id`.chomp.to_s + '.git',
   :branch         => :control_branch,
   :default_branch => default_branch('production')
