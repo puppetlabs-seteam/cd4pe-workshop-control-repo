@@ -75,7 +75,7 @@ class profile::master {
     ensure               => present,
     description          => 'Let anyone specify their environment.  Why not?',
     environment          => 'agent-specified',
-    override_environment => true,
+    override_environment => 'true',
     parent               => 'All Environments',
     rule                 => ['and',
     ['~',
