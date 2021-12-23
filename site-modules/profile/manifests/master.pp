@@ -73,7 +73,8 @@ class profile::master {
   # Let anyone set their environment on a run, for easy feature branch testing
   pe_node_group { 'Agent-specified environment':
     ensure             => 'present',
-    description        => 'Let anyone specify their environment.  Why not?',
+    classes            => {},
+    description        => 'Let anyone specify their environment',
     environment        => 'agent-specified',
     environment_trumps => true,
     parent             => 'All Environments',
