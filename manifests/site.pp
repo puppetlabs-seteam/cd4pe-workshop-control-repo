@@ -9,7 +9,7 @@ node /^master/, /^puppet/ {
   include profile::master
 }
 
-node /cd4pe\d+.classroom.puppet.com/ {
+node /cd4pe\d+.se.automationdemos.com/ {
   include profile::common
   include profile::cd4pe
 }
