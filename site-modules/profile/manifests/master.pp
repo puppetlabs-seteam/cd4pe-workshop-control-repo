@@ -2,6 +2,11 @@
 # the workshop.
 
 class profile::master {
+  # Need to make sure Deploy user has admin permissions for the mymodule::puppetdb_query task
+  rbac_user { 'deploy':
+    ensure       => 'present',
+    roles        => ['Administrators', 'Operators', 'Project Deployers']
+  }
 
   # Need a user role that can do all the things that CD4PE needs.
   rbac_user { 'cd4pe':
